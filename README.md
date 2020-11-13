@@ -24,7 +24,7 @@ In case of text file with EUC-KR(cp949), it may have some weird characters after
 
 # Requirements
 
-OS = linux
+OS = linux / windows
 
 GO >= 1.14
 
@@ -41,8 +41,13 @@ go build
 ```
 
 # Usage
+Convert one specific file
 ```
-./mobi_maker <input.txt>
+./mobi_maker <input.txt> 
+```
+Convert all text file in folder
+```
+./mobi_maker -a
 ```
 
 # Example
