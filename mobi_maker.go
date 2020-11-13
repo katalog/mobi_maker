@@ -26,15 +26,23 @@ func convert(filenamewithext string) {
 	m.Write()
 }
 
-func main() {
-	//debug
-	//os.Args = []string{"kindmaker", "uoop.txt"}
+func print_usage() {
+	fmt.Println("USAGE : mobi_maker textfile.txt")
+	fmt.Println("or      mobi_maker -a")
+	fmt.Println("-a option : convert all txt file in same folder")
+}
 
+func main() {
 	if len(os.Args) != 2 {
-		fmt.Println("USAGE : mobi_maker textfile.txt")
-		fmt.Println("or      mobi_maker -a")
-		fmt.Println("-a option : convert all txt file in same folder")
+		print_usage()
 		return
+	}
+
+	if strings.Contains(os.Args[1], ".txt") == false {
+		if strings.Contains(os.Args[1], "-a") == false {
+			print_usage()
+			return
+		}
 	}
 
 	lstFilename := []string{}
